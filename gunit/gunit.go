@@ -1,4 +1,4 @@
-package main
+package gunit
 
 import (
 	"fmt"
@@ -10,14 +10,13 @@ import (
 
 const (
 	passFilename = "output/pass.txt"
-
 	failFilename = "output/fail.txt"
 )
 
 var passLyrics []string
 var failLyrics []string
 
-// Run loads the ..
+// Run loads the text output after passing/failing tests
 func Run() {
 	var err error
 	passLyrics, err = loadLyrics(passFilename)
@@ -29,7 +28,6 @@ func Run() {
 		log.Fatal("Could not load failing lyrics:", err)
 	}
 
-	FailTest()
 	PassTest()
 }
 
@@ -42,6 +40,7 @@ func PassTest() {
 }
 
 func getRandomLyric(lyrics []string) string {
+	rand.Seed(44)
 	return lyrics[rand.Intn(len(lyrics))]
 }
 
@@ -51,6 +50,5 @@ func loadLyrics(filename string) ([]string, error) {
 		log.Fatalf("Failure reading in %s", filename)
 		return nil, err
 	}
-
 	return strings.Split(string(data), "\n"), nil
 }

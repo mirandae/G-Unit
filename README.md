@@ -3,4 +3,6 @@
 ![Logo](./logo.jpg)
 
 
-Hate it or Love it: a golang unit testing framework
+Aiming for 50-(per)cent code coverage
+
+

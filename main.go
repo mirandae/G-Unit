@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+
+	"github.com/g-unit/gunit"
 )
 
 const (
@@ -26,7 +28,7 @@ func main() {
 		return
 	}
 
-	Run()
+	gunit.Run()
 
 }
 
