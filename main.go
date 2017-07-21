@@ -1,11 +1,15 @@
 // Author mirandae
-
 package main
 
 import (
 	"flag"
 	"fmt"
-	"os"
+	"io/ioutil"
+	"log"
+)
+
+const (
+	gunitStartMenu = "gunit_ascii.txt"
 )
 
 func getArgs() bool {
@@ -15,11 +19,22 @@ func getArgs() bool {
 }
 
 func main() {
+	printMenu()
+
 	if success := getArgs(); success {
 		fmt.Println("yay!")
-		os.Exit(1)
+		return
 	}
 
-	fmt.Println("nay")
+	Run()
+
+}
+
+func printMenu() {
+	data, err := ioutil.ReadFile(gunitStartMenu)
+	if err != nil {
+		log.Fatal("Can't start G-unit :(")
+	}
+	fmt.Print(string(data))
 
 }
