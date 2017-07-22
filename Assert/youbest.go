@@ -1,9 +1,8 @@
-package youBest
+package Assert
 
-import "github.com/g-unit/gunit"
+import "github.com/mirandae/g-unit/gunit"
 
-// Be - assert true
-func Be(value bool) {
+func True(value bool) {
 	if !value {
 		gunit.FailTest()
 		return
@@ -11,8 +10,7 @@ func Be(value bool) {
 	gunit.PassTest()
 }
 
-// NotBe asserts false
-func NotBe(value bool) {
+func False(value bool) {
 	if !value {
 		gunit.PassTest()
 		return
@@ -20,8 +18,7 @@ func NotBe(value bool) {
 	gunit.FailTest()
 }
 
-// BeInTheHouse asserts existence
-func BeInTheHouse(value interface{}) {
+func Not(value interface{}) {
 	if value != nil {
 		gunit.PassTest()
 		return
